@@ -387,8 +387,7 @@
 
 		_emulateDragOver: function () {
 			if (touchEvt) {
-				_css(ghostEl, 'display', 'none');
-
+		
 				var target = document.elementFromPoint(touchEvt.clientX, touchEvt.clientY),
 					parent = target,
 					groupName = ' ' + this.options.group.name + '',
@@ -415,7 +414,7 @@
 					while (parent = parent.parentNode);
 				}
 
-				_css(ghostEl, 'display', '');
+				
 			}
 		},
 
@@ -457,6 +456,9 @@
 					ghostRect;
 
 				ghostEl = dragEl.cloneNode(true);
+				ghostEl.style.pointerEvents = "none"
+
+			
 
 				_css(ghostEl, 'top', rect.top - parseInt(css.marginTop, 10));
 				_css(ghostEl, 'left', rect.left - parseInt(css.marginLeft, 10));
